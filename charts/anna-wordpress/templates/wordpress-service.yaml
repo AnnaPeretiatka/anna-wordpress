@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "anna-wordpress.fullname" . }}-wordpress
+spec:
+  selector:
+    app: wordpress # which pods to target (= deployment + pod label)
+  type: {{ .Values.service.type }} # only reachable inside the cluster, Ingress will forward external traffic to it
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.wordpress.servicePort }} # port inside container
+
+  
+
