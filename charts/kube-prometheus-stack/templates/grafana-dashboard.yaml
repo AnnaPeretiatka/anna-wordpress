@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wordpress-grafana-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  wordpress-dashboard.json: |-
+{{- $json := .Files.Get "files/wordpress-dashboard.json" }}
+{{ $json | indent 4 }}
+    
