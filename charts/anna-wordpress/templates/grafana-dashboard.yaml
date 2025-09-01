@@ -6,7 +6,7 @@ metadata:
   labels:
     grafana_dashboard: "1"
 data:
-  wordpress-dashboard.json: |
+  wordpress-dashboard.json: |-
  
     {
       "annotations": {
@@ -528,4 +528,5 @@ data:
       "title": "Anna stable dashboard",
       "uid": "89a9ee08-3ccc-4fc3-a7f3-2881812dec33",
       "version": 5
+
     }
