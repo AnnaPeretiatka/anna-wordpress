@@ -5423,9 +5423,9 @@ extraManifests: null
   #     plaintext: Zm9vYmFy
   #     templated: '{{ print "foobar" | upper | b64enc }}'
 
-  grafana:
-  sidecar:
-    dashboards:
-      enabled: true
-      label: grafana_dashboard
-      folder: /var/lib/grafana/dashboards
+  #grafana:
+  #sidecar:
+  #  dashboards:
+  #    enabled: true
+  #    label: grafana_dashboard
+  #    folder: /var/lib/grafana/dashboards
