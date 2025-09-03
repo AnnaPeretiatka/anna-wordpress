@@ -5422,10 +5422,17 @@ extraManifests: null
   #   data:
   #     plaintext: Zm9vYmFy
   #     templated: '{{ print "foobar" | upper | b64enc }}'
-
-  #grafana:
-  #sidecar:
-  #  dashboards:
-  #    enabled: true
-  #    label: grafana_dashboard
-  #    folder: /var/lib/grafana/dashboards
+grafana:
+  additionalDataSources:
+    - name: Prometheus
+      type: prometheus
+      access: proxy
+      url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+      uid: prometheus
+  operator:
+    dashboardsConfigMapRefEnabled: false
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      folder: /tmp/dashboards

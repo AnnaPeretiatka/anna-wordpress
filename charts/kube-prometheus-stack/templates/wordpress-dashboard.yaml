@@ -7,6 +7,6 @@ metadata:
     grafana_dashboard: "1"
 data:
   wordpress-dashboard.json: |-
-    {{ .Files.Get "files/wordpress-dashboard.json" | indent 4 }}
+    {{ .Files.Get "files/wordpress-dashboard.json" | nindent 6 }}
 
-    
+     

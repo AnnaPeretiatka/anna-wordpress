@@ -163,7 +163,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 24,
+        "w": 17,
         "x": 0,
         "y": 8
       },
@@ -193,29 +193,12 @@
         {
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "kube_pod_status_phase{namespace=\"default\", pod=~\"anna-wordpress-wordpress.*\", phase=\"Running\"}",
+          "expr": "kube_pod_status_phase{namespace=\"default\", pod=~\"anna-wordpress.*\", phase=\"Running\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "kube_pod_status_phase{namespace=\"default\", pod=~\"anna-wordpress-mariadb-0\", phase=\"Running\"}",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "{{pod}}",
-          "range": true,
-          "refId": "B",
           "useBackend": false
         }
       ],
@@ -257,7 +240,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 24,
+        "w": 17,
         "x": 0,
         "y": 16
       },
@@ -289,7 +272,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(kube_pod_container_status_restarts_total{namespace=\"default\", pod=~\"anna-wordpress-wordpress.*\"}[1h])) by (pod)",
+          "expr": "sum(increase(kube_pod_container_status_restarts_total{namespace=\"default\", pod=~\"anna-wordpress-.*\"}[1h])) by (pod)",
           "format": "time_series",
           "fullMetaSearch": false,
           "includeNullMetadata": false,
@@ -298,19 +281,6 @@
           "range": true,
           "refId": "A",
           "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(increase(kube_pod_container_status_restarts_total{namespace=\"default\", pod=~\"anna-wordpress-mariadb-0\"}[1h])) by (pod)",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
         }
       ],
       "title": "container restarts (stability)",
@@ -348,8 +318,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 11,
+        "w": 17,
         "x": 0,
         "y": 22
       },
@@ -369,7 +339,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto",
         "text": {
-          "titleSize": 8
+          "titleSize": 12
         }
       },
       "pluginVersion": "12.1.1",
@@ -391,19 +361,6 @@
           "range": true,
           "refId": "A",
           "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=\"anna-wordpress-mariadb-0\"}[5m])) by (pod)",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
         }
       ],
       "title": "CPU usage per pod over the last 5 minutes (0.0-1.0)",
@@ -441,10 +398,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 10,
+        "w": 17,
         "x": 0,
-        "y": 30
+        "y": 33
       },
       "id": 7,
       "options": {
@@ -462,7 +419,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto",
         "text": {
-          "titleSize": 8
+          "titleSize": 12
         }
       },
       "pluginVersion": "12.1.1",
@@ -484,19 +441,6 @@
           "range": true,
           "refId": "A",
           "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(container_cpu_usage_seconds_total{namespace=\"default\", pod=\"anna-wordpress-mariadb-0\"}) by (pod)",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
         }
       ],
       "title": "Memory Usage per pod",
@@ -510,12 +454,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Anna stable dashboard",
   "uid": "89a9ee08-3ccc-4fc3-a7f3-2881812dec33",
-  "version": 5
+  "version": 1
 }
