@@ -1,0 +1,4 @@
+Prometheus url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+after a change:
+helm upgrade anna-wordpress ./charts/anna-wordpress --namespace default
+helm upgrade --install kube-prometheus-stack . -n monitoring
